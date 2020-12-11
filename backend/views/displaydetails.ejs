@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    }
+    
+    .title {
+    color: black;
+    font-size: 20px;
+    }
+
+    p {
+      color: gray;
+      font-size:14px;
+    }
+    
+    button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    }
+    
+    a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+    }
+    
+    button:hover, a:hover {
+    opacity: 0.7;
+    }
+    </style>
+
+  </head>
+  <body>
+
+    <h1><%= title %></h1>
+    <!-- <table class="table table-striped table-primary">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Code</th>
+          <th>Event</th>
+          <th>Date</th>
+          <th>Month</th>
+          <th>Year</th>
+          <th>Certificate Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%if (records.length >0){ %>
+        <% records.forEach(function(row){ %>
+        <tr>
+          <td><%= row.name %></td>
+          <td><%= row.code %></td>
+          <td><%= row.event %></td>
+          <td><%= row.date %></td>
+          <td><%= row.month %></td>
+          <td><%= row.year %></td>
+          <td>
+            <% if(row.image){ %>
+            <img src="./uploads/<%= row.image %>" alt="Certificate image" width="80">
+          <% } %>
+          </td>
+        </tr>
+        <% })}else{ %>
+          <tr>
+              <td colspan="6">No Record Found</td>
+              
+            </tr>
+          <% } %>
+      </tbody>
+    </table> -->
+    
+    <%if (records.length>0){ %>
+        <% records.forEach(function(row){ %>
+            <div class="card">
+            <!-- <img src="https://www.givemycertificate.com/assets/img/logo.png" alt="Provider logo" style="width:100%"> -->
+            <img src="https://i.ya-webdesign.com/images/transparent-check-animated.gif" alt="Verified" style="width:100%">
+            <h1><%= row.name %></h1>
+            <p>Has participated in</p>
+            <p class="title"><%= row.event %></p>
+            <p>Organized On</p>
+            <p class="title"><%= row.month %>, <%= row.date %> <%= row.year %></p>
+            </div>
+            <div class="card">
+                <% if(row.image){ %>
+                    <img src="./uploads/<%= row.image %>" alt="Certificate image" width="500">
+                <% } %>
+            </div>
+        <% })}else{ %>
+            <p>No records found</p>
+        <% } %>
+
+    </body>
+    </html>
+
+  
+
+  </body>
+</html>
